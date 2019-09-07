@@ -42,7 +42,7 @@ router.get('/year/:year', (req, res, next) => {
     res.json(json)
   } catch (e) {
     console.log(e)
-    res.json({ error: Stringify(e) })
+    res.json({ error: JSON.stringify(e) })
   }
 })
 
@@ -87,7 +87,7 @@ router.get('/year/:year/month/:month', (req, res, next) => {
     res.json(json)
   } catch (e) {
     console.log(e)
-    res.json({ error: Stringify(e) })
+    res.json({ error: JSON.stringify(e) })
   }
 })
 
