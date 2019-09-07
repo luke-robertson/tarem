@@ -29,13 +29,13 @@ const getLastDate = arr => {
 
 const sumRainFall = arr => arr.reduce((acc, arr) => (acc += Number(arr[5] || 0)), 0)
 
-const noRainDays = arr => (arr.length ? arr.filter(arr => Number(arr[5])) : 0)
+const noRainDays = arr => (arr.length ? arr.filter(arr => !Number(arr[5])) : 0)
 
 const getAvrRainfall = arr => (arr.length ? sumRainFall(arr) / arr.length : 0)
 
-const getDaysNoRain = arr => (arr.length ? arr.length - noRainDays(arr).length : 0)
+const getDaysWithRain = arr => (arr.length ? arr.length - noRainDays(arr).length : 0)
 
-const getDaysWithRain = arr => (arr.length ? noRainDays(arr).length : 0)
+const getDaysNoRain = arr => (arr.length ? noRainDays(arr).length : 0)
 
 const responceData = arr => ({
   FirstRecordedDate: getFirstDate(arr),
