@@ -1,7 +1,7 @@
 const express = require('express')
 const fs = require('fs')
-const router = express.Router()
 const parse = require('csv-parse')
+const router = express.Router()
 const {
   responceData,
   getYearData,
@@ -17,6 +17,7 @@ fs.createReadStream(__dirname + '/../data.csv').pipe(
     data = res
   })
 )
+
 let data = []
 
 // year only route
