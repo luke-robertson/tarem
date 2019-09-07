@@ -24,10 +24,10 @@ let data = []
 
 router.get('/year/:year', (req, res, next) => {
   try {
-    const year = req.params.year
+    const { year } = req.params
     const yearData = getYearData(data, year)
 
-    if (yearData.length === 0) {
+    if (!yearData.length) {
       res.json({ error: `No data for ${year}` })
     }
 
@@ -51,8 +51,7 @@ router.get('/year/:year', (req, res, next) => {
 
 router.get('/year/:year/month/:month', (req, res, next) => {
   try {
-    const year = req.params.year
-    const month = req.params.month
+    const { year, month } = req.params
 
     if (month < 1 || month > 12) {
       res.json({ error: `Invalid month ${month}, must be 1 - 12` })
@@ -60,13 +59,13 @@ router.get('/year/:year/month/:month', (req, res, next) => {
 
     const yearData = getYearData(data, year)
 
-    if (yearData.length === 0) {
+    if (!yearData.length) {
       res.json({ error: `No data for ${year}` })
     }
 
     const monthData = getMonthData(yearData, month)
 
-    if (yearData.length === 0) {
+    if (!yearData.length) {
       res.json({ error: 'No data for this month' })
     }
 
