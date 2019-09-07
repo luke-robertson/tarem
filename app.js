@@ -6,10 +6,8 @@ const logger = require('morgan')
 
 const indexRouter = require('./routes/index')
 
-const port = 3333
 
 const app = express()
-app.set('port', process.env.PORT || port)
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -27,7 +25,5 @@ app.use((err, req, res, next) => {
     res.status(err.status || 500)
     res.json({ error: 'error' })
 })
-
-app.listen(port, () => console.log(`App started on localhost:${port}!`))
 
 module.exports = app
