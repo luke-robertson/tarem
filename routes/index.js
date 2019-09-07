@@ -65,10 +65,6 @@ router.get('/year/:year/month/:month', (req, res, next) => {
 
     const monthData = getMonthData(yearData, month)
 
-    if (!yearData.length) {
-      res.json({ error: 'No data for this month' })
-    }
-
     const json = {
       WeatherData: {
         WeatherDataForYear: {
